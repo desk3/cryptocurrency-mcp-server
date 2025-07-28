@@ -96,6 +96,8 @@ The server exposes the following resources:
 ```bash
 uv sync
 uv run desk3_service
+or
+uvicorn src.desk3_service.http_server:starlette_app --host 0.0.0.0 --port 8100
 ```
 
 ### Docker
