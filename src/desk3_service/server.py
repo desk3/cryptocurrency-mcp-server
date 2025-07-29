@@ -216,7 +216,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://gas/suggest"),
             name="EIP1559 Gas Suggestion",
-            description="Get EIP1559 gas suggestion for a given chainid. Use ?chainid=1 for Ethereum mainnet, ?chainid=137 for Polygon.（获取 EIP1559 Gas 建议，需 chainid 查询参数。使用 ?chainid=1 获取以太坊主网，?chainid=137 获取 Polygon）",
+            description="Get EIP1559 gas suggestion for a given chainid. Use ?chainid=1 for Ethereum mainnet, ?chainid=137 for Polygon",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -225,7 +225,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/exchangeRate"),
             name="Fiat Exchange Rate List",
-            description="List of foreign currency exchange rates（法币汇率列表）",
+            description="List of foreign currency exchange rates",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -234,7 +234,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/mini/24hr"),
             name="24hr Mini Ticker",
-            description="24-hour currency price Mini information, supports symbol parameters like BTCUSDT, ETHUSDT. Use ?symbol=BTCUSDT to get specific symbol data.（24 小时币价迷你行情，支持 symbol 参数，如 BTCUSDT、ETHUSDT。使用 ?symbol=BTCUSDT 获取特定符号数据）",
+            description="24-hour currency price Mini information, supports symbol parameters like BTCUSDT, ETHUSDT. Use ?symbol=BTCUSDT to get specific symbol data",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -243,7 +243,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/price"),
             name="Token Price Info",
-            description="Get real-time token price information, support symbol parameters like BTCUSDT, ETHUSDT. Use ?symbol=BTCUSDT to get specific symbol data.（获取实时代币价格，支持 symbol 参数，如 BTCUSDT、ETHUSDT。使用 ?symbol=BTCUSDT 获取特定符号数据）",
+            description="Get real-time token price information, support symbol parameters like BTCUSDT, ETHUSDT. Use ?symbol=BTCUSDT to get specific symbol data",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -252,7 +252,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/fear-greed"),
             name="Crypto Fear and Greed Index",
-            description="Discover our Fear and Greed Index, a powerful tool that analyzes market sentiment to help you make informed crypto investment decisions. Stay ahead of market trends with real-time and historical data available through our easy-to-use API.（贪婪与恐惧指数，分析市场情绪，助力明智投资决策，支持实时与历史数据）",
+            description="Discover our Fear and Greed Index, a powerful tool that analyzes market sentiment to help you make informed crypto investment decisions. Stay ahead of market trends with real-time and historical data available through our easy-to-use API",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -261,7 +261,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/btc/trend"),
             name="BTC Trend (3 months)",
-            description="Get the BTC trend chart for the past 3 months. Format: [[date, price, active addresses, new addresses, transaction addresses]]（获取近 3 个月 BTC 趋势图表，格式：[[日期, 当日价格, 活跃地址数, 新增地址数, 发生交易地址数]]）",
+            description="Get the BTC trend chart for the past 3 months. Format: [[date, price, active addresses, new addresses, transaction addresses]]",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -270,7 +270,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/eth/trend"),
             name="ETH Trend (3 months)",
-            description="Get the ETH trend chart for the past three months. Format: [[date, price, active addresses, new addresses]]（获取近 3 个月 ETH 趋势图表，格式：[[日期, 当日价格, 活跃地址数, 新增地址数]]）",
+            description="Get the ETH trend chart for the past three months. Format: [[date, price, active addresses, new addresses]]",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -279,7 +279,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/altcoin/season"),
             name="Altcoin Season Index",
-            description="Altcoin Season Index page provides real-time insights into whether the cryptocurrency market is currently in Altcoin Season, based on the performance of the top 100 altcoins relative to Bitcoin over the past 90 days, with detailed charts and metrics for tracking market trends and altcoin dominance.（山寨币季指数，基于前 100 山寨币与比特币 90 天表现，实时判断市场是否处于山寨币季，含详细图表与指标）",
+            description="Altcoin Season Index page provides real-time insights into whether the cryptocurrency market is currently in Altcoin Season, based on the performance of the top 100 altcoins relative to Bitcoin over the past 90 days, with detailed charts and metrics for tracking market trends and altcoin dominance",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -288,7 +288,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/bitcoin/dominance"),
             name="Bitcoin Dominance",
-            description="Bitcoin (BTC) dominance is a metric used to measure the relative market share or dominance of Bitcoin in the overall cryptocurrency sector. It represents the percentage of Bitcoin's total market capitalization compared to the total market capitalization of all cryptocurrencies combined.（比特币主导率，衡量比特币在整个加密货币市场的市值占比）",
+            description="Bitcoin (BTC) dominance is a metric used to measure the relative market share or dominance of Bitcoin in the overall cryptocurrency sector. It represents the percentage of Bitcoin's total market capitalization compared to the total market capitalization of all cryptocurrencies combined",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -297,7 +297,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/cycle/indicators"),
             name="Crypto Market Cycle Top Indicators",
-            description="Get crypto market cycle top indicators with fields (Indicator/Current/24h%/ReferencePrice/Triggered). Provides comprehensive market cycle analysis including Bitcoin Ahr999 Index, Pi Cycle Top Indicator, Puell Multiple, and more.（加密货币市场周期顶部指标，返回字段：指标/当前/24小时%/参考价格/已触发。提供全面的市场周期分析，包括比特币Ahr999指数、Pi周期顶部指标、Puell倍数等）",
+            description="Get crypto market cycle top indicators with fields (Indicator/Current/24h%/ReferencePrice/Triggered). Provides comprehensive market cycle analysis including Bitcoin Ahr999 Index, Pi Cycle Top Indicator, Puell Multiple, and more",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -306,7 +306,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/pi-cycle-top"),
             name="BTC Pi Cycle Top Indicator",
-            description="The Pi Cycle Top indicator uses the 111DMA and 2x350DMA to identify Bitcoin market tops. When the 111DMA crosses above the 2x350DMA, it historically typically signals a cycle peak within about 3 days, reflecting Bitcoin's long-term cyclical behavior.（Pi 周期顶部指标使用 111DMA 和 2x350DMA 来识别比特币市场顶部。当 111DMA 上穿 2x350DMA 时，历史上通常在约 3 天内预示周期峰值，反映了比特币的长期周期行为。）",
+            description="The Pi Cycle Top indicator uses the 111DMA and 2x350DMA to identify Bitcoin market tops. When the 111DMA crosses above the 2x350DMA, it historically typically signals a cycle peak within about 3 days, reflecting Bitcoin's long-term cyclical behavior",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -315,7 +315,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/rainbow"),
             name="Bitcoin Rainbow Price Chart",
-            description="The Bitcoin Rainbow Chart uses a logarithmic growth curve with a color band to illustrate market sentiment and highlight potential buy or sell areas. It is not suitable for short-term predictions, but helps to identify overvaluation or undervaluation from history.（比特币彩虹图使用带有色带的对数增长曲线来说明市场情绪，并突出显示潜在的买入或卖出区域。它不适用于短期预测，但有助于从历史上识别高估或低估的情况。）",
+            description="The Bitcoin Rainbow Chart uses a logarithmic growth curve with a color band to illustrate market sentiment and highlight potential buy or sell areas. It is not suitable for short-term predictions, but helps to identify overvaluation or undervaluation from history",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -324,7 +324,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/puell-multiple"),
             name="Puell Multiple",
-            description="The Puell Multiple assesses Bitcoin miners' revenue by dividing daily issuance (in USD) by its 365-day average. This reflects the mining pressure in the market. Low values (green areas) indicate undervaluation and strong historical buy areas, while high values (red areas) indicate overvaluation and potential sell opportunities. It provides insight into market cycles from the perspective of miners.（Puell Multiple 通过将每日发行量（美元）除以其 365 天的平均值来评估比特币矿工的收入。这反映了市场上的挖矿压力。低值（绿色区域）表示低估和强劲的历史买入区域，而高值（红色区域）表示高估和潜在的卖出机会。它从矿工的角度洞察市场周期。）",
+            description="The Puell Multiple assesses Bitcoin miners' revenue by dividing daily issuance (in USD) by its 365-day average. This reflects the mining pressure in the market. Low values (green areas) indicate undervaluation and strong historical buy areas, while high values (red areas) indicate overvaluation and potential sell opportunities. It provides insight into market cycles from the perspective of miners",
             mimeType="application/json",
             size=None,
             annotations=None,
@@ -333,7 +333,7 @@ async def handle_list_resources() -> list[types.Resource]:
         types.Resource(
             uri=AnyUrl("desk3://market/cycles"),
             name="Simple indicators: Puell Multiple Status/Pi Cycle Top Status/Crypto Market Cycle Top Indicator",
-            description="Does the Bitcoin Four-Year Cycle Exist? Discover the cryptocurrency market cycle indicator that helps you identify the top of the cryptocurrency bull market. This is a collection of publicly available signals including Pi Cycle and Puell Multiple data.（比特币四年周期是否存在？发现加密货币市场周期指标，帮助您识别加密货币牛市的顶峰。这是一个公开可用的信号集合，包括 Pi 循环和 Puell Multiple 数据。） Return fields: (puellMultiple Puell: multiple status / piCycleTop: Pi cycle top status / likelihood: cryptocurrency market cycle top indicator) 返回字段：（puellMultiple Puell：多重状态 / piCycleTop：Pi 周期顶部状态 / likelihood: 加密货币市场周期顶部指标）",
+            description="Does the Bitcoin Four-Year Cycle Exist? Discover the cryptocurrency market cycle indicator that helps you identify the top of the cryptocurrency bull market. This is a collection of publicly available signals including Pi Cycle and Puell Multiple data. Return fields: (puellMultiple Puell: multiple status / piCycleTop: Pi cycle top status / likelihood: cryptocurrency market cycle top indicator) ",
             mimeType="application/json",
             size=None,
             annotations=None,
