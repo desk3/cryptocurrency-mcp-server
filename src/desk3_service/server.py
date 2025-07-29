@@ -453,13 +453,13 @@ async def handle_list_tools() -> list[types.Tool]:
     tools = [
         types.Tool(
             name="get_suggest_gas",
-            description="Get EIP1559 estimated gas info (chainid required)（获取 EIP1559 估算 Gas 信息，需要 chainid）",
+            description="Get EIP1559 estimated gas info (chainid required)",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "chainid": {
                         "type": "string",
-                        "description": "Chain ID for the blockchain network (e.g., 1 for Ethereum mainnet, 137 for Polygon)（区块链网络链ID，如 1 表示以太坊主网，137 表示 Polygon）",
+                        "description": "Chain ID for the blockchain network (e.g., 1 for Ethereum mainnet, 137 for Polygon)",
                         "examples": ["1", "137", "56", "42161"],
                         "pattern": "^[0-9]+$"
                     },
@@ -469,7 +469,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_exchange_rate",
-            description="Get list of fiat currency exchange rates（获取法币汇率列表）",
+            description="Get list of fiat currency exchange rates",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -478,13 +478,13 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_mini_24hr",
-            description="Get 24-hour mini ticker info, supports symbol parameter（获取 24 小时迷你行情，支持 symbol 参数）",
+            description="Get 24-hour mini ticker info, supports symbol parameter",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "symbol": {
                         "type": "string",
-                        "description": "Trading pair symbol in format like BTCUSDT, ETHUSDT, etc. Leave empty to get all symbols.（交易对符号，格式如 BTCUSDT、ETHUSDT 等。留空获取所有符号）",
+                        "description": "Trading pair symbol in format like BTCUSDT, ETHUSDT, etc. Leave empty to get all symbols.",
                         "examples": ["BTCUSDT", "ETHUSDT", "BNBUSDT"],
                         "pattern": "^[A-Z0-9]+$"
                     },
@@ -494,13 +494,13 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_token_price",
-            description="Get real-time token price info, supports symbol parameter（获取实时代币价格，支持 symbol 参数）",
+            description="Get real-time token price info, supports symbol parameter",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "symbol": {
                         "type": "string",
-                        "description": "Trading pair symbol in format like BTCUSDT, ETHUSDT, etc. Leave empty to get all symbols.（交易对符号，格式如 BTCUSDT、ETHUSDT 等。留空获取所有符号）",
+                        "description": "Trading pair symbol in format like BTCUSDT, ETHUSDT, etc. Leave empty to get all symbols",
                         "examples": ["BTCUSDT", "ETHUSDT", "BNBUSDT"],
                         "pattern": "^[A-Z0-9]+$"
                     },
@@ -510,7 +510,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_fear_greed_index",
-            description="Discover our Fear and Greed Index, a powerful tool that analyzes market sentiment to help you make informed crypto investment decisions. Stay ahead of market trends with real-time and historical data available through our easy-to-use API.（贪婪与恐惧指数，分析市场情绪，助力明智投资决策，支持实时与历史数据）",
+            description="Discover our Fear and Greed Index, a powerful tool that analyzes market sentiment to help you make informed crypto investment decisions. Stay ahead of market trends with real-time and historical data available through our easy-to-use API",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -519,7 +519,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_btc_trend",
-            description="Get BTC trend chart for the past 3 months. Format: [[date, price, active addresses, new addresses, transaction addresses]]（获取近 3 个月 BTC 趋势图表，格式：[[日期, 当日价格, 活跃地址数, 新增地址数, 发生交易地址数]]）",
+            description="Get BTC trend chart for the past 3 months. Format: [[date, price, active addresses, new addresses, transaction addresses]]",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -528,7 +528,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_eth_trend",
-            description="Get the ETH trend chart for the past three months. Format: [[date, price, active addresses, new addresses]]（获取近 3 个月 ETH 趋势图表，格式：[[日期, 当日价格, 活跃地址数, 新增地址数]]）",
+            description="Get the ETH trend chart for the past three months. Format: [[date, price, active addresses, new addresses]]",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -537,7 +537,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_altcoin_season_index",
-            description="Altcoin Season Index page provides real-time insights into whether the cryptocurrency market is currently in Altcoin Season, based on the performance of the top 100 altcoins relative to Bitcoin over the past 90 days, with detailed charts and metrics for tracking market trends and altcoin dominance.（山寨币季指数，基于前 100 山寨币与比特币 90 天表现，实时判断市场是否处于山寨币季，含详细图表与指标）",
+            description="Altcoin Season Index page provides real-time insights into whether the cryptocurrency market is currently in Altcoin Season, based on the performance of the top 100 altcoins relative to Bitcoin over the past 90 days, with detailed charts and metrics for tracking market trends and altcoin dominance",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -546,7 +546,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_bitcoin_dominance",
-            description="Bitcoin (BTC) dominance is a metric used to measure the relative market share or dominance of Bitcoin in the overall cryptocurrency sector. It represents the percentage of Bitcoin's total market capitalization compared to the total market capitalization of all cryptocurrencies combined.（比特币主导率，衡量比特币在整个加密货币市场的市值占比）",
+            description="Bitcoin (BTC) dominance is a metric used to measure the relative market share or dominance of Bitcoin in the overall cryptocurrency sector. It represents the percentage of Bitcoin's total market capitalization compared to the total market capitalization of all cryptocurrencies combined",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -555,7 +555,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_cycle_indicators",
-            description="Get crypto market cycle top indicators with fields (Indicator/Current/24h%/ReferencePrice/Triggered). Provides comprehensive market cycle analysis including Bitcoin Ahr999 Index, Pi Cycle Top Indicator, Puell Multiple, Bitcoin Rainbow Chart, and more.（加密货币市场周期顶部指标，返回字段：指标/当前/24小时%/参考价格/已触发。提供全面的市场周期分析，包括比特币Ahr999指数、Pi周期顶部指标、Puell倍数、比特币彩虹图等）",
+            description="Get crypto market cycle top indicators with fields (Indicator/Current/24h%/ReferencePrice/Triggered). Provides comprehensive market cycle analysis including Bitcoin Ahr999 Index, Pi Cycle Top Indicator, Puell Multiple, Bitcoin Rainbow Chart, and more",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -564,7 +564,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_pi_cycle_top",
-            description="The Pi Cycle Top indicator uses the 111DMA and 2x350DMA to identify Bitcoin market tops. When the 111DMA crosses above the 2x350DMA, it historically typically signals a cycle peak within about 3 days, reflecting Bitcoin's long-term cyclical behavior.（Pi 周期顶部指标使用 111DMA 和 2x350DMA 来识别比特币市场顶部。当 111DMA 上穿 2x350DMA 时，历史上通常在约 3 天内预示周期峰值，反映了比特币的长期周期行为。）",
+            description="The Pi Cycle Top indicator uses the 111DMA and 2x350DMA to identify Bitcoin market tops. When the 111DMA crosses above the 2x350DMA, it historically typically signals a cycle peak within about 3 days, reflecting Bitcoin's long-term cyclical behavior",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -573,7 +573,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_rainbow_chart",
-            description="The Bitcoin Rainbow Chart uses a logarithmic growth curve with a color band to illustrate market sentiment and highlight potential buy or sell areas. It is not suitable for short-term predictions, but helps to identify overvaluation or undervaluation from history.（比特币彩虹图使用带有色带的对数增长曲线来说明市场情绪，并突出显示潜在的买入或卖出区域。它不适用于短期预测，但有助于从历史上识别高估或低估的情况。）",
+            description="The Bitcoin Rainbow Chart uses a logarithmic growth curve with a color band to illustrate market sentiment and highlight potential buy or sell areas. It is not suitable for short-term predictions, but helps to identify overvaluation or undervaluation from history",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -582,7 +582,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_puell_multiple",
-            description="The Puell Multiple assesses Bitcoin miners' revenue by dividing daily issuance (in USD) by its 365-day average. This reflects the mining pressure in the market. Low values (green areas) indicate undervaluation and strong historical buy areas, while high values (red areas) indicate overvaluation and potential sell opportunities. It provides insight into market cycles from the perspective of miners.（Puell Multiple 通过将每日发行量（美元）除以其 365 天的平均值来评估比特币矿工的收入。这反映了市场上的挖矿压力。低值（绿色区域）表示低估和强劲的历史买入区域，而高值（红色区域）表示高估和潜在的卖出机会。它从矿工的角度洞察市场周期。）",
+            description="The Puell Multiple assesses Bitcoin miners' revenue by dividing daily issuance (in USD) by its 365-day average. This reflects the mining pressure in the market. Low values (green areas) indicate undervaluation and strong historical buy areas, while high values (red areas) indicate overvaluation and potential sell opportunities. It provides insight into market cycles from the perspective of miners",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -591,7 +591,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="get_cycles",
-            description="Does the Bitcoin Four-Year Cycle Exist? Discover the cryptocurrency market cycle indicator that helps you identify the top of the cryptocurrency bull market. This is a collection of publicly available signals including Pi Cycle and Puell Multiple data.（比特币四年周期是否存在？发现加密货币市场周期指标，帮助您识别加密货币牛市的顶峰。这是一个公开可用的信号集合，包括 Pi 循环和 Puell Multiple 数据。） Return fields: (puellMultiple Puell: multiple status / piCycleTop: Pi cycle top status / likelihood: cryptocurrency market cycle top indicator) 返回字段：（puellMultiple Puell：多重状态 / piCycleTop：Pi 周期顶部状态 / likelihood: 加密货币市场周期顶部指标）",
+            description="Does the Bitcoin Four-Year Cycle Exist? Discover the cryptocurrency market cycle indicator that helps you identify the top of the cryptocurrency bull market. This is a collection of publicly available signals including Pi Cycle and Puell Multiple data. Return fields: (puellMultiple Puell: multiple status / piCycleTop: Pi cycle top status / likelihood: cryptocurrency market cycle top indicator) ",
             inputSchema={
                 "type": "object",
                 "properties": {},
