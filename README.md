@@ -82,7 +82,7 @@ The server exposes the following resources:
 
 ## Configuration
 
-- Requires a valid `DESK3_API_KEY` (set in your environment or `.env` file).
+~~- Requires a valid `DESK3_API_KEY` (set in your environment or `.env` file).~~
 
 ## Quickstart
 
@@ -139,5 +139,6 @@ This mode is only needed if you want to use MCP over stdin/stdout (not recommend
 - Make sure `uv` is installed and in your PATH.
 - Ensure your `DESK3_API_KEY` is valid.
 - If using Docker, set the API key with `-e DESK3_API_KEY=...`.
+
 
 
