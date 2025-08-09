@@ -134,11 +134,15 @@ uv run desk3_service
 
 This mode is only needed if you want to use MCP over stdin/stdout (not recommended for most users).
 
+## Using Desk3 MCP Server in dify 
+https://github.com/desk3/cryptocurrency-mcp-server/wiki
+
 ## Troubleshooting
 
 - Make sure `uv` is installed and in your PATH.
 ~~- Ensure your `DESK3_API_KEY` is valid.~~
 ~~- If using Docker, set the API key with `-e DESK3_API_KEY=...`.~~
+
 
 
 
