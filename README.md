@@ -104,7 +104,7 @@ uvicorn src.desk3_service.http_server:starlette_app --host 0.0.0.0 --port 8100
 
 ```bash
 docker build -t desk3-service .
-docker run -e DESK3_API_KEY=your_api_key_here -p 8100:8100 desk3-service
+docker run -e -p 8100:8100 desk3-service
 ```
 
 ## Startup Modes
@@ -137,8 +137,9 @@ This mode is only needed if you want to use MCP over stdin/stdout (not recommend
 ## Troubleshooting
 
 - Make sure `uv` is installed and in your PATH.
-- Ensure your `DESK3_API_KEY` is valid.
-- If using Docker, set the API key with `-e DESK3_API_KEY=...`.
+~~- Ensure your `DESK3_API_KEY` is valid.~~
+~~- If using Docker, set the API key with `-e DESK3_API_KEY=...`.~~
+
 
 
 
