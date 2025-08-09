@@ -113,7 +113,7 @@ This project supports two startup modes:
 
 ### 1. HTTP/SSE Server (Recommended)
 
-Launches a Starlette HTTP/SSE server on 0.0.0.0:8100 for use with Dify, Claude, Notion MCP, etc.
+Launches a Starlette HTTP/SSE server on 0.0.0.0:8100/sse (http://127.0.0.1:8100/sse) for use with Dify, Claude, Notion MCP, etc.
 
 ```bash
 # Recommended: run directly with Python
@@ -142,6 +142,7 @@ https://github.com/desk3/cryptocurrency-mcp-server/wiki
 - Make sure `uv` is installed and in your PATH.
 ~~- Ensure your `DESK3_API_KEY` is valid.~~
 ~~- If using Docker, set the API key with `-e DESK3_API_KEY=...`.~~
+
 
 
 
