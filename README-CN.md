@@ -19,6 +19,8 @@
   24 小时币价迷你行情（支持 symbol 参数，如 ETHUSDT）
 - `desk3://market/price`  
   实时代币价格（支持 symbol 参数，如 ETHUSDT、BTCUSDT）
+- `desk3://market/circulating`  
+  代币流通量与供应量（symbol 参数必传，格式 BTC -> BTCUSDT, ETH -> ETHUSDT）
 - `desk3://market/fear-greed`  
   贪婪与恐惧指数（分析市场情绪，助力明智投资决策，支持实时与历史数据）
 - `desk3://market/btc/trend`  
@@ -53,6 +55,9 @@
 - `get_token_price`  
   获取实时代币价格（支持 symbol 参数）
   - **symbol**: 交易对符号，格式如 BTCUSDT、ETHUSDT 等。留空获取所有符号
+- `get_token_circulating_supply`  
+  获取代币流通量与供应量信息
+  - **symbol**: 交易对符号（必传），格式 BTC -> BTCUSDT, ETH -> ETHUSDT
 - `get_fear_greed_index`  
   贪婪与恐惧指数，分析市场情绪，助力明智投资决策，支持实时与历史数据
 - `get_btc_trend`  
@@ -90,8 +95,6 @@
 ```bash
 uv sync
 uv run desk3_service
-or
-uvicorn src.desk3_service.http_server:starlette_app --host 0.0.0.0 --port 8100
 ```
 
 ### Docker
