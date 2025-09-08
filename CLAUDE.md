@@ -92,6 +92,8 @@ The server implements:
     24hr Mini Ticker（24 小时币价迷你行情，支持 symbol 参数，如 ETHUSDT）
   - `desk3://market/price`  
     Token Price Info（获取实时代币价格，支持 symbol 参数，如 ETHUSDT、BTCUSDT）
+  - `desk3://market/circulating`  
+    Token Circulating Supply and Total Supply（获取代币流通量与供应量，symbol 参数必传，格式 BTC -> BTCUSDT, ETH -> ETHUSDT）
   - `desk3://market/fear-greed`  
     Crypto Fear and Greed Index（贪婪与恐惧指数，分析市场情绪，助力明智投资决策，支持实时与历史数据）
   - `desk3://market/btc/trend`  
@@ -125,6 +127,9 @@ The server implements:
   - `get_token_price`  
     Get real-time token price info, supports symbol parameter（获取实时代币价格，支持 symbol 参数）
     - **symbol**: Trading pair symbol in format like BTCUSDT, ETHUSDT, etc. Leave empty to get all symbols
+  - `get_token_circulating_supply`  
+    Get token circulating supply and total supply information（获取代币流通量与供应量信息）
+    - **symbol**: Trading pair symbol (required), format BTC -> BTCUSDT, ETH -> ETHUSDT
   - `get_fear_greed_index`  
     Discover our Fear and Greed Index, a powerful tool that analyzes market sentiment to help you make informed crypto investment decisions. Stay ahead of market trends with real-time and historical data available through our easy-to-use API.（贪婪与恐惧指数，分析市场情绪，助力明智投资决策，支持实时与历史数据）
   - `get_btc_trend`  
