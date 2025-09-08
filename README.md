@@ -2,10 +2,6 @@
 
 A fully compatible [MCP (Model Context Protocol)](https://github.com/mcp-protocol/spec) server for Desk3 crypto data, supporting Dify, Claude, Notion MCP, and other clients.
 
-<a href="https://glama.ai/mcp/servers/@desk3/cryptocurrency-mcp-server">
-  <img width="380" height="200" src="https://glama.ai/mcp/servers/@desk3/cryptocurrency-mcp-server/badge" />
-</a>
-
 ## Key Features
 
 - Implements all Desk3 crypto data endpoints as MCP resources and tools
@@ -25,6 +21,8 @@ The server exposes the following resources:
   24hr Mini Ticker（24 小时币价迷你行情，支持 symbol 参数，如 ETHUSDT）
 - `desk3://market/price`  
   Token Price Info（获取实时代币价格，支持 symbol 参数，如 ETHUSDT、BTCUSDT）
+- `desk3://market/circulating`  
+  Token Circulating Supply and Total Supply（获取代币流通量与供应量，symbol 参数必传，格式 BTC -> BTCUSDT, ETH -> ETHUSDT）
 - `desk3://market/fear-greed`  
   Crypto Fear and Greed Index（贪婪与恐惧指数，分析市场情绪，助力明智投资决策，支持实时与历史数据）
 - `desk3://market/btc/trend`  
@@ -59,6 +57,9 @@ The server exposes the following resources:
 - `get_token_price`  
   Get real-time token price info, supports symbol parameter（获取实时代币价格，支持 symbol 参数）
   - **symbol**: Trading pair symbol in format like BTCUSDT, ETHUSDT, etc. Leave empty to get all symbols
+- `get_token_circulating_supply`  
+  Get token circulating supply and total supply information（获取代币流通量与供应量信息）
+  - **symbol**: Trading pair symbol (required), format BTC -> BTCUSDT, ETH -> ETHUSDT
 - `get_fear_greed_index`  
   Discover our Fear and Greed Index...（贪婪与恐惧指数，分析市场情绪，助力明智投资决策，支持实时与历史数据）
 - `get_btc_trend`  
@@ -96,8 +97,6 @@ The server exposes the following resources:
 ```bash
 uv sync
 uv run desk3_service
-or
-uvicorn src.desk3_service.http_server:starlette_app --host 0.0.0.0 --port 8100
 ```
 
 ### Docker
@@ -134,17 +133,10 @@ uv run desk3_service
 
 This mode is only needed if you want to use MCP over stdin/stdout (not recommended for most users).
 
-## Using Desk3 MCP Server in dify 
-https://github.com/desk3/cryptocurrency-mcp-server/wiki
-
 ## Troubleshooting
 
 - Make sure `uv` is installed and in your PATH.
 ~~- Ensure your `DESK3_API_KEY` is valid.~~
 ~~- If using Docker, set the API key with `-e DESK3_API_KEY=...`.~~
-
-
-
-
 
 
