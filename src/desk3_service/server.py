@@ -94,6 +94,19 @@ async def get_token_price(symbol: str | None = None) -> dict[str, Any]:
     except Exception as e:
         raise RuntimeError(f"Failed to fetch token price data: {e}")
 
+async def get_token_circulating_supply(symbol: str) -> dict[str, Any]:
+    """
+    Get token circulating supply and total supply information.
+    :param symbol: Trading pair symbol (required), format BTC -> BTCUSDT, ETH -> ETHUSDT
+    :return: Token circulating supply and total supply information
+    """
+    url = 'https://mcp.desk3.io/v1/market/circulating'
+    params = {'symbol': symbol}
+    try:
+        return request_api('get', url, params=params)
+    except Exception as e:
+        raise RuntimeError(f"Failed to fetch token circulating supply data: {e}")
+
 async def get_fear_greed_index() -> dict[str, Any]:
     """
     Get crypto fear and greed index。
@@ -250,6 +263,15 @@ async def handle_list_resources() -> list[types.Resource]:
             meta=None,
         ),
         types.Resource(
+            uri=AnyUrl("desk3://market/circulating"),
+            name="Token Circulating Supply and Total Supply",
+            description="Get token circulating supply and total supply information. Symbol parameter is required, format BTC -> BTCUSDT, ETH -> ETHUSDT. Use ?symbol=BTCUSDT to get specific symbol data",
+            mimeType="application/json",
+            size=None,
+            annotations=None,
+            meta=None,
+        ),
+        types.Resource(
             uri=AnyUrl("desk3://market/fear-greed"),
             name="Crypto Fear and Greed Index",
             description="Discover our Fear and Greed Index, a powerful tool that analyzes market sentiment to help you make informed crypto investment decisions. Stay ahead of market trends with real-time and historical data available through our easy-to-use API",
@@ -380,6 +402,16 @@ async def handle_read_resource(uri: AnyUrl) -> str:
                 return json.dumps(data, indent=2)
             except Exception as e:
                 raise RuntimeError(f"Failed to fetch token price data: {e}")
+        case "/circulating":
+            try:
+                query_params = {qp[0]: qp[1] for qp in uri.query_params()}
+                symbol = query_params.get("symbol")
+                if not symbol:
+                    raise ValueError("Missing required query param: symbol")
+                data = await get_token_circulating_supply(symbol=symbol)
+                return json.dumps(data, indent=2)
+            except Exception as e:
+                raise RuntimeError(f"Failed to fetch token circulating supply data: {e}")
         case "/fear-greed":
             try:
                 data = await get_fear_greed_index()
@@ -506,6 +538,22 @@ async def handle_list_tools() -> list[types.Tool]:
                     },
                 },
                 "required": [],
+            },
+        ),
+        types.Tool(
+            name="get_token_circulating_supply",
+            description="Get token circulating supply and total supply information",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "symbol": {
+                        "type": "string",
+                        "description": "Trading pair symbol (required), format BTC -> BTCUSDT, ETH -> ETHUSDT",
+                        "examples": ["BTCUSDT", "ETHUSDT", "BNBUSDT"],
+                        "pattern": "^[A-Z0-9]+$"
+                    },
+                },
+                "required": ["symbol"],
             },
         ),
         types.Tool(
@@ -660,6 +708,20 @@ async def handle_call_tool(
                 ]
             except Exception as e:
                 raise RuntimeError(f"Failed to fetch token price data: {e}")
+        case "get_token_circulating_supply":
+            if not arguments or "symbol" not in arguments:
+                raise ValueError("Missing required argument: symbol")
+            symbol = arguments["symbol"]
+            try:
+                data = await get_token_circulating_supply(symbol=symbol)
+                return [
+                    types.TextContent(
+                        type="text",
+                        text=json.dumps(data, indent=2),
+                    )
+                ]
+            except Exception as e:
+                raise RuntimeError(f"Failed to fetch token circulating supply data: {e}")
         case "get_fear_greed_index":
             try:
                 data = await get_fear_greed_index()
