@@ -2,6 +2,10 @@
 
 A fully compatible [MCP (Model Context Protocol)](https://github.com/mcp-protocol/spec) server for Desk3 crypto data, supporting Dify, Claude, Notion MCP, and other clients.
 
+<a href="https://glama.ai/mcp/servers/@desk3/cryptocurrency-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@desk3/cryptocurrency-mcp-server/badge" />
+</a>
+
 ## Key Features
 
 - Implements all Desk3 crypto data endpoints as MCP resources and tools
@@ -138,5 +142,6 @@ This mode is only needed if you want to use MCP over stdin/stdout (not recommend
 - Make sure `uv` is installed and in your PATH.
 ~~- Ensure your `DESK3_API_KEY` is valid.~~
 ~~- If using Docker, set the API key with `-e DESK3_API_KEY=...`.~~
+
 
 
