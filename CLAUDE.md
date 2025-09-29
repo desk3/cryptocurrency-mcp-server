@@ -114,6 +114,8 @@ The server implements:
   Puell Multiple（皮勒乘数计算，通过每日发行量除以其365天平均值评估比特币矿工收入，反映市场挖矿压力）
 - `desk3://market/cycles`  
   Simple indicators: Puell Multiple Status/Pi Cycle Top Status/Crypto Market Cycle Top Indicator（简易指标：Puell 多重状态/Pi 周期顶部状态/加密货币市场周期顶部指标）
+- `desk3://market/calendar`  
+  Economic Calendar（经济日历，显示重要市场和政策事件，支持 date 参数格式 YYYY-MM，如 2025-09，不传参默认获取当前月份）
 
 - **Tools**:
   - `get_suggest_gas`  
@@ -150,3 +152,5 @@ The server implements:
     The Puell Multiple assesses Bitcoin miners' revenue by dividing daily issuance (in USD) by its 365-day average. This reflects the mining pressure in the market. Low values (green areas) indicate undervaluation and strong historical buy areas, while high values (red areas) indicate overvaluation and potential sell opportunities. It provides insight into market cycles from the perspective of miners.（Puell Multiple 通过将每日发行量（美元）除以其 365 天的平均值来评估比特币矿工的收入。这反映了市场上的挖矿压力。低值（绿色区域）表示低估和强劲的历史买入区域，而高值（红色区域）表示高估和潜在的卖出机会。它从矿工的角度洞察市场周期。）
   - `get_cycles`  
     Does the Bitcoin Four-Year Cycle Exist? Discover the cryptocurrency market cycle indicator that helps you identify the top of the cryptocurrency bull market. This is a collection of publicly available signals including Pi Cycle and Puell Multiple data.（比特币四年周期是否存在？发现加密货币市场周期指标，帮助您识别加密货币牛市的顶峰。这是一个公开可用的信号集合，包括 Pi 循环和 Puell Multiple 数据。） Return fields: (puellMultiple Puell: multiple status / piCycleTop: Pi cycle top status / likelihood: cryptocurrency market cycle top indicator) 返回字段：（puellMultiple Puell：多重状态 / piCycleTop：Pi 周期顶部状态 / likelihood: 加密货币市场周期顶部指标）
+  - `get_market_calendar`  
+    Get economic calendar for specified month. Shows important market or political events. Parameter: date (optional) in format YYYY-MM (e.g., 2025-09). If not provided, returns current month data.（获取指定月份的经济日历，重要市场或政治事件。参数：date（可选）格式 YYYY-MM（如 2025-09），不传参表示获取当前月份）
