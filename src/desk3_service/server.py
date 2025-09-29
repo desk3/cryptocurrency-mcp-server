@@ -218,6 +218,21 @@ async def get_cycles() -> dict[str, Any]:
     except Exception as e:
         raise RuntimeError(f"Failed to fetch cycles data: {e}")
 
+async def get_market_calendar(date: str | None = None) -> dict[str, Any]:
+    """
+    Get economic calendar for specified month. Shows important market or political events.
+    :param date: Year-month in format YYYY-MM (e.g., 2025-09). If not provided, returns current month
+    :return: Economic calendar data with events organized by day
+    """
+    url = 'https://mcp.desk3.io/v1/market/calendar'
+    params = {}
+    if date:
+        params['date'] = date
+    try:
+        return request_api('get', url, params=params)
+    except Exception as e:
+        raise RuntimeError(f"Failed to fetch market calendar data: {e}")
+
 server = Server("desk3_service")
 
 @server.list_resources()
@@ -360,6 +375,15 @@ async def handle_list_resources() -> list[types.Resource]:
             size=None,
             annotations=None,
             meta=None,
+        ),
+        types.Resource(
+            uri=AnyUrl("desk3://market/calendar"),
+            name="Economic Calendar / 经济日历",
+            description="Get economic calendar for specified month. Shows important market or political events. Parameter: date (optional) in format YYYY-MM (e.g., 2025-09). If not provided, returns current month data / 获取指定月份的经济日历，重要市场或政治事件。参数：date（可选）格式 YYYY-MM（如 2025-09），不传参表示获取当前月份",
+            mimeType="application/json",
+            size=None,
+            annotations=None,
+            meta=None,
         )
     ]
     return resources
@@ -472,6 +496,14 @@ async def handle_read_resource(uri: AnyUrl) -> str:
                 return json.dumps(data, indent=2)
             except Exception as e:
                 raise RuntimeError(f"Failed to fetch cycles data: {e}")
+        case "/calendar":
+            try:
+                query_params = {qp[0]: qp[1] for qp in uri.query_params()}
+                date = query_params.get("date")
+                data = await get_market_calendar(date=date)
+                return json.dumps(data, indent=2)
+            except Exception as e:
+                raise RuntimeError(f"Failed to fetch market calendar data: {e}")
         case _:
             raise ValueError(f"Unsupported path: {uri.path}")
 
@@ -643,6 +675,22 @@ async def handle_list_tools() -> list[types.Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {},
+                "required": [],
+            },
+        ),
+        types.Tool(
+            name="get_market_calendar",
+            description="Get economic calendar for specified month. Shows important market or political events. Parameter: date (optional) in format YYYY-MM (e.g., 2025-09). If not provided, returns current month data / 获取指定月份的经济日历，重要市场或政治事件。参数：date（可选）格式 YYYY-MM（如 2025-09），不传参表示获取当前月份",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "Year-month in format YYYY-MM (e.g., 2025-09). If not provided, returns current month / 年月格式 YYYY-MM（如 2025-09），不传参表示获取当前月份",
+                        "examples": ["2025-09", "2025-10", "2025-01"],
+                        "pattern": "^[0-9]{4}-[0-9]{2}$"
+                    },
+                },
                 "required": [],
             },
         )
@@ -832,6 +880,18 @@ async def handle_call_tool(
                 ]
             except Exception as e:
                 raise RuntimeError(f"Failed to fetch cycles data: {e}")
+        case "get_market_calendar":
+            date = arguments.get("date") if arguments else None
+            try:
+                data = await get_market_calendar(date=date)
+                return [
+                    types.TextContent(
+                        type="text",
+                        text=json.dumps(data, indent=2),
+                    )
+                ]
+            except Exception as e:
+                raise RuntimeError(f"Failed to fetch market calendar data: {e}")
         case _:
             raise ValueError(f"Unsupported tool: {name}")
 
