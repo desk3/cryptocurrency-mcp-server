@@ -47,6 +47,8 @@ The server exposes the following resources:
   Puell Multiple（皮勒乘数计算，通过每日发行量除以其365天平均值评估比特币矿工收入，反映市场挖矿压力）
 - `desk3://market/cycles`  
   Simple indicators: Puell Multiple Status/Pi Cycle Top Status/Crypto Market Cycle Top Indicator（简易指标：Puell 多重状态/Pi 周期顶部状态/加密货币市场周期顶部指标）
+- `desk3://market/calendar`  
+  Economic Calendar（经济日历，显示重要市场和政策事件，支持 date 参数格式 YYYY-MM，如 2025-09，不传参默认获取当前月份）
 
 ## Tools
 
@@ -84,6 +86,8 @@ The server exposes the following resources:
   The Puell Multiple assesses Bitcoin miners' revenue by dividing daily issuance (in USD) by its 365-day average（Puell Multiple 通过将每日发行量（美元）除以其 365 天的平均值来评估比特币矿工的收入）
 - `get_cycles`  
   Does the Bitcoin Four-Year Cycle Exist? Discover the cryptocurrency market cycle indicator that helps you identify the top of the cryptocurrency bull market（比特币四年周期是否存在？发现加密货币市场周期指标，帮助您识别加密货币牛市的顶峰）
+- `get_market_calendar`  
+  Get economic calendar for specified month. Shows important market or political events. Parameter: date (optional) in format YYYY-MM (e.g., 2025-09). If not provided, returns current month data（获取指定月份的经济日历，重要市场或政治事件。参数：date（可选）格式 YYYY-MM（如 2025-09），不传参表示获取当前月份）
 
 ## Configuration
 
@@ -142,6 +146,5 @@ This mode is only needed if you want to use MCP over stdin/stdout (not recommend
 - Make sure `uv` is installed and in your PATH.
 ~~- Ensure your `DESK3_API_KEY` is valid.~~
 ~~- If using Docker, set the API key with `-e DESK3_API_KEY=...`.~~
-
 
 
